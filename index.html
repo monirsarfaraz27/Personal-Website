@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Monir Ahmed | Personal Brand</title>
+<meta name="description" content="Personal portfolio and creative brand of Md Monir Ahmed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #10110f;
+  --surface: #191b18;
+  --text: #f4f3ed;
+  --muted: #a4a69e;
+  --accent: #c5f277;
+  --border: rgba(255,255,255,.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.6;
+}
+
+a { color:inherit; text-decoration:none; }
+
+.container {
+  width:min(1120px,90%);
+  margin:auto;
+}
+
+nav {
+  height:85px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+}
+
+.logo {
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.logo span { color:var(--accent); }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+
+.nav-links a {
+  color:var(--muted);
+  font-size:14px;
+  transition:.3s;
+}
+
+.nav-links a:hover { color:var(--accent); }
+
+.contact-btn,.primary-btn {
+  background:var(--accent);
+  color:#151712;
+  padding:13px 23px;
+  border-radius:5px;
+  font-weight:700;
+  display:inline-block;
+  transition:.3s;
+}
+
+.contact-btn:hover,.primary-btn:hover {
+  transform:translateY(-3px);
+  background:#d6ff91;
+}
+
+.menu-toggle {
+  display:none;
+  border:0;
+  background:none;
+  color:white;
+  font-size:27px;
+  cursor:pointer;
+}
+
+.hero {
+  min-height:680px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:55px;
+  padding:85px 0;
+}
+
+.tag {
+  color:var(--accent);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.hero h1 {
+  font-size:clamp(45px,6.5vw,78px);
+  line-height:1.08;
+  letter-spacing:-4px;
+  margin:23px 0;
+}
+
+.hero h1 span {
+  color:var(--accent);
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+}
+
+.hero p {
+  color:var(--muted);
+  max-width:490px;
+  font-size:16px;
+  margin-bottom:32px;
+}
+
+.hero-actions {
+  display:flex;
+  gap:15px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.secondary-btn {
+  padding:12px 22px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  font-weight:600;
+}
+
+.secondary-btn:hover { border-color:var(--accent); }
+
+.hero-image {
+  height:480px;
+  position:relative;
+  background:linear-gradient(145deg,#394333,#181c16);
+  border-radius:180px 180px 12px 12px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.image-label {
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  background:rgba(16,17,15,.8);
+  padding:13px 18px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  font-size:12px;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:35px 0;
+  text-align:center;
+}
+
+.stat h2 { font-size:35px; color:var(--accent); }
+.stat p { font-size:13px; color:var(--muted); }
+
+section { padding:105px 0; }
+
+.section-heading {
+  max-width:650px;
+  margin-bottom:50px;
+}
+
+.section-heading h2 {
+  font-size:clamp(35px,5vw,52px);
+  line-height:1.15;
+  letter-spacing:-2px;
+  margin-top:15px;
+}
+
+.section-heading p {
+  color:var(--muted);
+  margin-top:18px;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about-card {
+  background:var(--surface);
+  padding:45px;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.about-card h3 {
+  font-size:29px;
+  margin-bottom:18px;
+}
+
+.about-card p { color:var(--muted); margin-bottom:18px; }
+
+.skills {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px;
+}
+
+.skill {
+  border:1px solid var(--border);
+  padding:9px 14px;
+  border-radius:30px;
+  font-size:12px;
+}
+
+.services {
+  background:var(--surface);
+}
+
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.service-card {
+  padding:32px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  transition:.3s;
+}
+
+.service-card:hover {
+  transform:translateY(-7px);
+  border-color:var(--accent);
+}
+
+.service-icon {
+  font-size:29px;
+  margin-bottom:22px;
+}
+
+.service-card h3 { font-size:21px; margin-bottom:12px; }
+.service-card p { font-size:14px; color:var(--muted); }
+
+.projects-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.project {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:9px;
+  overflow:hidden;
+}
+
+.project-image {
+  height:270px;
+  background:#343d2f;
+  overflow:hidden;
+}
+
+.project-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.project:hover img { transform:scale(1.05); }
+
+.project-info { padding:25px; }
+.project-info p { color:var(--muted); font-size:14px; margin-top:8px; }
+
+.quote {
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:50px;
+  border-radius:10px;
+  max-width:850px;
+}
+
+.quote h3 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(24px,4vw,35px);
+  line-height:1.5;
+}
+
+.quote p { color:var(--accent); margin-top:25px; }
+
+.contact {
+  text-align:center;
+  background:var(--surface);
+}
+
+.contact h2 {
+  font-size:clamp(40px,6vw,65px);
+  letter-spacing:-3px;
+  line-height:1.15;
+  margin:20px 0;
+}
+
+.contact p {
+  color:var(--muted);
+  margin-bottom:30px;
+}
+
+footer {
+  padding:35px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.socials { display:flex; gap:20px; }
+.socials a:hover { color:var(--accent); }
+
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s,transform .7s;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:768px) {
+  .menu-toggle { display:block; }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:85px;
+    left:0;
+    width:100%;
+    padding:25px 5%;
+    background:var(--surface);
+    flex-direction:column;
+    align-items:flex-start;
+    z-index:10;
+  }
+
+  .nav-links.active { display:flex; }
+
+  .nav-links .contact-btn { display:inline-block; }
+
+  .hero {
+    grid-template-columns:1fr;
+    padding:65px 0;
+    gap:40px;
+  }
+
+  .hero h1 { letter-spacing:-2px; }
+
+  .hero-image {
+    height:400px;
+    max-width:430px;
+    width:100%;
+    margin:auto;
+  }
+
+  .stats { gap:12px; }
+  .stat h2 { font-size:27px; }
+  .stat p { font-size:11px; }
+
+  .about-grid,.projects-grid { grid-template-columns:1fr; gap:25px; }
+  .service-grid { grid-template-columns:1fr; }
+
+  section { padding:75px 0; }
+  .about-card { padding:28px; }
+  .quote { padding:30px; }
+
+  footer { justify-content:center; text-align:center; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after {
+    animation:none!important;
+    transition:none!important;
+  }
+  .reveal { opacity:1; transform:none; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="container">
+  <nav>
+    <a href="#" class="logo">Ahmed<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">My Work</a></li>
+      <li><a href="#contact" class="contact-btn">Let's Talk ↗</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section class="container hero" id="home">
+  <div class="reveal">
+    <div class="tag">✦ Personal Brand & Creative Portfolio</div>
+    <h1>Building ideas into <span>something extraordinary.</span></h1>
+    <p>
+      Hey, I'm Md Monir Ahmed. A creative entrepreneur, digital strategist
+      and passionate creator helping brands turn bold ideas into meaningful impact.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="primary-btn">Explore My Work ↗</a>
+      <a href="#about" class="secondary-btn">More About Me</a>
+    </div>
+  </div>
+
+  <div class="hero-image reveal">
+    <img src="./monirsarfaraz.jpg" alt="Portrait of Md Monir">
+    <div class="image-label">📍 Available for projects worldwide</div>
+  </div>
+</section>
+
+<div class="container stats reveal">
+  <div class="stat"><h2>05+</h2><p>Years Experience</p></div>
+  <div class="stat"><h2>80+</h2><p>Projects Completed</p></div>
+  <div class="stat"><h2>35+</h2><p>Happy Clients</p></div>
+</div>
+
+<section class="container" id="about">
+  <div class="about-grid">
+    <div class="section-heading reveal">
+      <div class="tag">A little about me</div>
+      <h2>Creativity meets strategy.</h2>
+      <p>
+        I believe great things happen when creativity meets purpose.
+        My journey is about exploring new ideas, solving problems and
+        creating work that makes a difference.
+      </p>
+      <p>
+        Whether it's building a brand, designing digital experiences or
+        developing a growth strategy, I bring passion and purpose to every project.
+      </p>
+      <a href="#contact" class="primary-btn">Work With Me ↗</a>
+    </div>
+
+    <div class="about-card reveal">
+      <h3>What makes me different?</h3>
+      <p>I combine creative thinking with practical execution to turn ambitious visions into real results.</p>
+      <p>My approach is simple: understand the problem, think differently and deliver exceptional work.</p>
+      <div class="skills">
+        <span class="skill">Creative Strategy</span>
+        <span class="skill">Branding</span>
+        <span class="skill">Marketing</span>
+        <span class="skill">Design</span>
+        <span class="skill">Entrepreneurship</span>
+        <span class="skill">Leadership</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="tag">What I do</div>
+      <h2>Turning expertise into impact.</h2>
+      <p>Here are some of the ways I help individuals and businesses grow.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">✳</div>
+        <h3>Brand Strategy</h3>
+        <p>Creating unique brand identities and positioning that make businesses memorable.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">◈</div>
+        <h3>Digital Growth</h3>
+        <p>Developing creative digital strategies that connect brands with the right audience.</p>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">✦</div>
+        <h3>Creative Consulting</h3>
+        <p>Helping people transform their ideas into actionable plans and meaningful results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="work">
+  <div class="section-heading reveal">
+    <div class="tag">Selected projects</div>
+    <h2>A few things I've created.</h2>
+    <p>A selection of projects that showcase my creativity and approach.</p>
+  </div>
+
+  <div class="projects-grid">
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900" alt="Digital strategy project">
+      </div>
+      <div class="project-info">
+        <h3>Digital Growth Strategy</h3>
+        <p>Brand Strategy · Digital Marketing</p>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900" alt="Creative workspace project">
+      </div>
+      <div class="project-info">
+        <h3>Creative Brand Identity</h3>
+        <p>Branding · Creative Direction</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="container">
+  <div class="tag reveal">Kind words</div>
+  <div class="quote reveal" style="margin-top:25px">
+    <h3>"Monir Ahmed brought a fresh perspective to our business. The creativity, attention to detail and commitment to quality made all the difference."</h3>
+    <p>— A Happy Client</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container reveal">
+    <div class="tag">Have a project in mind?</div>
+    <h2>Let's create something <span style="color:var(--accent)">amazing.</span></h2>
+    <p>I'm always open to exciting ideas, collaborations and new opportunities.</p>
+    <a href="mailto:hello@example.com" class="primary-btn">Get In Touch ↗</a>
+  </div>
+</section>
+</main>
+
+<footer class="container">
+  <p>© 2026 Md Monir Ahmed. All rights reserved.</p>
+  <div class="socials">
+    <a href="https://linkedin.com/">LinkedIn</a>
+    <a href="https://instagram.com/">Instagram</a>
+    <a href="https://github.com/">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('active');
+  menuToggle.setAttribute('aria-expanded', isOpen);
+  menuToggle.textContent = isOpen ? '✕' : '☰';
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
